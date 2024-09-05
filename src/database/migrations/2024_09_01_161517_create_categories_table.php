@@ -8,10 +8,9 @@ class CreateCategoriesTable extends Migration
 {
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->bigIncrements('id')->constrained()->cascadeOnDelete();
-            $table->string('content', 255);
+            $table->string('name', 255);
             $table->timestamps();
         });
     }

@@ -19,3 +19,15 @@
     font-weight: bold;
     font-size: 24px;
 }
+
+.contact-form__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+}
+
+.contact-form__heading {
+    color: #8B7969;
+    margin-bottom: 40px;
+    text-align: center;
+}

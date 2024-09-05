@@ -1,141 +1,65 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/index.css') }}">
+<link rel="stylesheet" href="{{ asset('css/confirm.css') }}">
 @endsection
+
+@section('title', 'Confirm')
 
 @section('content')
 <div class="contact-form__content">
-    <div class="contact-form__heading">
-        <h2>Register</h2>
-    </div>
-    <form class="form">
-        <div class="form__group">
-            <div class="form__group-title">
-                <span class="form__label--item">お名前</span>
-                <span class="form__label--required">※</span>
-            </div>
-            <div class="form__group-content">
-                <div class="form__input--text">
-                    <input type="text" name="first_name" placeholder="例:山田" />
-                    <input type="text" name="last_name" placeholder="例:太郎" />
-                </div>
-                <div class="form__error">
-                    <!--バリデーション機能を実装したら記述します。-->
-                </div>
-            </div>
-        </div>
-        <div class="form__group">
-            <div class="form__group-title">
-                <span class="form__label--item">性別</span>
-                <span class="form__label--required">※</span>
-            </div>
-            <div class="form__group-content">
-                <div class="form__input--radio">
-                    <label>
-                        <input type="radio" name="gender" value="male" required> 男性
-                    </label>
-                    <label>
-                        <input type="radio" name="gender" value="female"> 女性
-                    </label>
-                    <label>
-                        <input type="radio" name="gender" value="other"> その他
-                    </label>
-                </div>
-                <div class="form__error">
-                    <!--バリデーション機能を実装したら記述します。-->
-                </div>
-            </div>
-        </div>
-        <div class="form__group">
-            <div class="form__group-title">
-                <span class="form__label--item">メールアドレス</span>
-                <span class="form__label--required">※</span>
-            </div>
-            <div class="form__group-content">
-                <div class="form__input--text">
-                    <input type="email" name="email" placeholder="例:test@example.com" />
-                </div>
-                <div class="form__error">
-                    <!--バリデーション機能を実装したら記述します。-->
-                </div>
-            </div>
-        </div>
-        <div class="form__group">
-            <div class="form__group-title">
-                <span class="form__label--item">電話番号</span>
-                <span class="form__label--required">※</span>
-            </div>
-            <div class="form__group-content">
-                <div class="form__input--text">
-                    <input type="text" name="tel-part1" maxlength="3" size="3" placeholder="080" />
-                    <span class="form__input-separator">-</span>
-                    <input type="text" name="tel-part2" maxlength="4" size="4" placeholder="1234" />
-                    <span class="form__input-separator">-</span>
-                    <input type="text" name="tel-part3" maxlength="4" size="4" placeholder="5678" />
-                </div>
-                <div class="form__error">
-                    <!--バリデーション機能を実装したら記述します。-->
-                </div>
-            </div>
-        </div>
-        <div class="form__group">
-            <div class="form__group-title">
-                <span class="form__label--item">住所</span>
-                <span class="form__label--required">※</span>
-            </div>
-            <div class="form__group-content">
-                <div class="form__input--text">
-                    <input type="text" name="adress" placeholder="例:東京都渋谷区千駄ヶ谷1-2-3" />
-                </div>
-                <div class="form__error">
-                    <!--バリデーション機能を実装したら記述します。-->
-                </div>
-            </div>
-        </div>
-        <div class="form__group">
-            <div class="form__group-title">
-                <span class="form__label--item">建物名</span>
-            </div>
-            <div class="form__group-content">
-                <div class="form__input--text">
-                    <input type="text" name="building" placeholder="例:千駄ヶ谷マンション101" />
-                </div>
-                <div class="form__error">
-                    <!--バリデーション機能を実装したら記述します。-->
-                </div>
-            </div>
-        </div>
-        <div class="form__group">
-            <div class="form__group-title">
-                <span class="form__label--item">お問い合わせ種類</span>
-                <span class="form__label--required">※</span>
-            </div>
-            <div class="form__group-content">
-                <div class="form__input--text">
-                    <input type="text" name="contentu" placeholder="選択してください" />
-                </div>
-                <div class="form__error">
-                    <!--バリデーション機能を実装したら記述します。-->
-                </div>
-            </div>
-        </div>
-        <div class="form__group">
-            <div class="form__group-title">
-                <span class="form__label--item">お問い合わせ内容</span>
-                <span class="form__label--required">※</span>
-            </div>
-            <div class="form__group-content">
-                <div class="form__input--text">
-                    <input type="text" name="detail" placeholder="お問い合わせ内容をご記載ください" />
-                </div>
-                <div class="form__error">
-                    <!--バリデーション機能を実装したら記述します。-->
-                </div>
-            </div>
-        </div>
+    <table class="table-confirm">
+        <tr>
+            <td class="table-confirm__item">お名前</td>
+            <td class="table-confirm__content">{{ $contact['first_name'] }} {{ $data['last_name'] }}</td>
+        </tr>
+        <tr>
+            <td class="table-confirm__item">性別</td>
+            <td class="table-confirm__content">
+                {{ $data['gender'] == 1 ? '男性' : ($contact['gender'] == 2 ? '女性' : 'その他') }}
+            </td>
+        </tr>
+        <tr>
+            <td class="table-confirm__item">メールアドレス</td>
+            <td class="table-confirm__content">{{ $contact['email'] }}</td>
+        </tr>
+        <tr>
+            <td class="table-confirm__item">電話番号</td>
+            <td class="table-confirm__content">{{ $contact['tell'] }}</td>
+        </tr>
+        <tr>
+            <td class="table-confirm__item">住所</td>
+            <td class="table-confirm__content">{{ $contact['address'] }}</td>
+        </tr>
+        <tr>
+            <td class="table-confirm__item">建物名</td>
+            <td class="table-confirm__content">{{ $contact['building'] ?? 'なし' }}</td>
+        </tr>
+        <tr>
+            <td class="table-confirm__item">お問い合わせの種類</td>
+            <td class="table-confirm__content">{{ $contacts->find($contact['category_id'])->name }}</td>
+        </tr>
+        <tr>
+            <td class="table-confirm__item">お問い合わせ内容</td>
+            <td class="table-confirm__content">{{ $contact['detail'] }}</td>
+        </tr>
+    </table>
+
+    <form action="{{ route('contacts.store') }}" method="POST">
+        @csrf
+        <input type="hidden" name="first_name" value="{{ $contact['first_name'] }}">
+        <input type="hidden" name="last_name" value="{{ $contact['last_name'] }}">
+        <input type="hidden" name="gender" value="{{ $contact['gender'] }}">
+        <input type="hidden" name="email" value="{{ $contact['email'] }}">
+        <input type="hidden" name="tell" value="{{ $contact['tell'] }}">
+        <input type="hidden" name="address" value="{{ $contact['address'] }}">
+        <input type="hidden" name="building" value="{{ $contact['building'] }}">
+        <input type="hidden" name="category_id" value="{{ $contact['category_id'] }}">
+        <input type="hidden" name="detail" value="{{ $contact['detail'] }}">
+
         <div class="form__button">
-            <button class="form__button-submit" type="submit">確認画面</button>
+            <button class="form__button-submit" type="submit">送信</button>
+            <a href="{{ route('contacts.form') }}">修正</a>
         </div>
     </form>
 </div>

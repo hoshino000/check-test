@@ -19,9 +19,14 @@
         </div>
     </header>
 
-    <main>
-        @yield('content')
-    </main>
+    <div class="contact-form__content">
+        <div class="contact-form__heading">
+            <h1>@yield('title')</h1>
+            <div class="content">
+                @yield('content')
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

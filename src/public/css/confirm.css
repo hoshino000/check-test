@@ -1,0 +1,20 @@
+.contact-form__content {
+    margin: 0 auto;
+    width: 70%;
+}
+
+.table-confirm {
+    display: flex;
+    justify-content: center;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+}
+
+.table-confirm__item {
+    flex-basis: 30%;
+    margin-right: 10px;
+}
+
+.table-confirm__content {
+    flex-basis: 70%;
+}
