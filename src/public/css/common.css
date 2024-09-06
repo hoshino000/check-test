@@ -14,10 +14,21 @@
 }
 
 .header__logo {
-    color: #8B7969;
     text-decoration: none;
+    color: #8B7969;
+    text-align: center;
     font-weight: bold;
     font-size: 24px;
+}
+
+.header__button {
+    text-decoration: none;
+    color: #E1D3C7;
+    background-color: #F6F6F6;
+    border-color: #E1D3C7;
+    margin: 0 0 0 auto;
+    padding: 4px 6px;
+    border-radius: 3px;
 }
 
 .contact-form__content {

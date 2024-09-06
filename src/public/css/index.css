@@ -38,6 +38,8 @@
 }
 
 .form__input--text input,
+.form__input--text select,
+.form__input--textinput textarea,
 .form__input--textarea textarea {
     padding: 10px;
     width: 600px;
@@ -93,3 +95,13 @@
     color: #fff;
     cursor: pointer;
 }
+
+.form__input--textinput {
+    width: auto;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-align: center;
+}
+
